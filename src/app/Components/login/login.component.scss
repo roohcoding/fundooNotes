@@ -1,15 +1,67 @@
-.main{
-    // margin: 30px 22%;
-    padding: 30px;
+.mainLogin{
+   
+    padding: 10px;
+   
+    
 }
 
-.mainContainer{
-    border: 2px solid rgb(228, 220, 220);
-    border-radius: 7px;
-    padding: 20px;
-    padding-bottom: 10%;
+.Lcontainer
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #d5d2d2;
+    border-radius: 10px;
+    width: 440px;
+    height: 480px;
+    padding:20px;
+    margin-top: 20px;
+    
 }
+.Lcontainer a{
+    text-decoration:none;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #1a73e8;
+
+}
+.Lcontainer span{
+  font-size: 25px;
+}
+
+
+
+.b-links a{
+    text-decoration:none;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #1a73e8;
+  }
+
+  .b-links button {
+    background: #3498db;
+    color: white;
+    padding: 0.5rem 1.3rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+
 
 mat-form-field.mat-form-field {
     font-size: 14px;
   }
+  // .Lcontainer input{
+//     width: 200px;
+//     margin-left: 50px;
+//     font-size: 14px;
+//     border-radius: 0.8rem;
+    
+// }
+
+// #a1{
+//     margin-left: 10px;
+// }

@@ -1,6 +1,6 @@
 <div fxLayout="column" fxLayoutAlign="center" class="main" fxFlex="100">
     <div fxLayout="row" fxLayoutAlign="center" class="mainContainer">
-        <!-- <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"> -->
+       <!--<form [formGroup]="registerForm" (ngSubmit)="onSubmit()"> --> 
         <div class="container1">
             <div class="Regtop">
                 <h3 style="font-size: 30px; font-style: inherit">
@@ -24,10 +24,12 @@
                 <mat-form-field appearance="outline">
                     <mat-label>First Name</mat-label>
                     <input matInput placeholder="First Name">
+                    <mat-error>Enter first name</mat-error>
                 </mat-form-field> &nbsp;&nbsp;
                 <mat-form-field appearance="outline">
                     <mat-label>Last Name</mat-label>
                     <input matInput placeholder="Last Name">
+                    <mat-error>Enter last name</mat-error>
                 </mat-form-field>
             </div>
 
@@ -35,20 +37,22 @@
                 <mat-form-field appearance="outline">
                     <mat-label>Username</mat-label>
                     <input matInput placeholder="username">
-                    <span class="email">@gmail.com</span>
+                    <mat-error>Enter valid username</mat-error>
                 </mat-form-field>
                 <span class="style"> You can use letters, numbers & periods</span>
                 <a href="#">Use my current email address instead</a>
-            </div>
+            </div><br>
 
             <div fxLayout="row" fxLayoutGap="20px" fxLayout.xs="column">
                 <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
                     <input matInput placeholder="Password">
+                    <mat-error>Enter valid password</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Confirm</mat-label>
                     <input matInput placeholder="Confirm">
+                    <mat-error>confirmpassword should be same as password</mat-error>
                 </mat-form-field>
             </div>
 
@@ -58,16 +62,16 @@
             <input type="checkbox" name="" class="checkbox">
             &nbsp;Show password
 
-            <div class="b-links" fxLayout="row" fxLayoutAlign="space-between center" >
-                <a href="#">Sing in Instead</a>
-                <button>Next</button>
+            <div class="b-links" ng-submit="submit()" fxLayout="row" fxLayoutAlign="space-between center" >
+                <a routerLink="/login" href="#">Sing in Instead</a>
+                <button class="btn" onclick="next()">Next</button>
             </div>
 
         </div>
 
         
 
-        <!-- </form> -->
+        <!--</form>-->  
         <div class="container2" fxLayout="column" fxHide.xs="true"  fxLayoutAlign="center center">
             <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="img" class="image" />
             <span style="text-align: left;">One account. All of Google working for you.</span>

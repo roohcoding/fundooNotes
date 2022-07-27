@@ -1,0 +1,33 @@
+.mainLogin{
+   
+    padding: 10px;
+   
+    
+}
+
+.Lcontainer
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #d5d2d2;
+    border-radius: 20px;
+    width: 420px;
+    height: 410px;
+    padding:20px;
+    margin-top: 20px;
+    
+}
+.Lcontainer button{
+    background: #3498db;
+    color: white;
+    padding: 0.5rem 1.3rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+mat-form-field.mat-form-field {
+    font-size: 14px;
+  }

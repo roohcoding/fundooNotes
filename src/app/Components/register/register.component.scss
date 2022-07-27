@@ -77,14 +77,15 @@
     outline: none;
     cursor: pointer;
   }
-
+  
+  .main button:hover,.main button:active,.main button:focus {
+    background: #3280f4;
+    }
 .container2{
     padding-left: 20px;
 
 }
-mat-form-field.mat-form-field {
-    font-size: 14px;
-  }
+
 
 //   @media only screen and (max-width:770px){
 //     body{

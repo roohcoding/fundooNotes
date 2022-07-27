@@ -1,7 +1,7 @@
 <div fxLayout="column" fxLayoutAlign="center center" class="mainlogin">
     <div class="Lcontainer">
         <div fxLayout="column" fxLayoutAlign="center center ">
-            <h3 style="font-size: 20px; font-style: inherit">
+            <h5 style="font-size: 30px; font-style: inherit">
                 <span style="color: rgb(8, 115, 111)">F</span>
                 <span style="color: rgb(216, 65, 65)">u</span>
                 <span style="color: rgb(219, 154, 32)">n</span>
@@ -12,9 +12,9 @@
                 <span style="color: rgb(203, 78, 15)">o</span>
                 <span style="color: rgb(22, 111, 99)">t</span>
                 <span style="color: rgb(102, 9, 164)">e</span>
-            </h3>
-            <h1>Sign in</h1>
-            <h3>Use your Google Account </h3>
+            </h5><br>
+            <h1>Find your email</h1>
+            <h3>Enter your phone number or recovery email </h3>
         </div>
 
         <div fxLayout="column" fxLayoutAlign="center">
@@ -22,17 +22,12 @@
                 <mat-label>Email or phone</mat-label>
                 <input matInput placeholder="Email or phone">
             </mat-form-field>
-            <a routerLink="/forgot-email" href="#">Forgot email?</a>
+
         </div><br>
 
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-            <mat-hint class="style">Not your computer? Use Guest mode to sign in privately. <br><a href="#">Learn more</a></mat-hint>
-           
-        </div><br><br>
-
-        <div class="b-links" fxLayout="row" fxLayoutAlign="space-between center" >
-            <a routerLink="/register" href="#">Create account</a>
+        <div fxLayout="column" fxLayoutAlign="end end">
             <button>Next</button>
         </div>
+
     </div>
 </div>

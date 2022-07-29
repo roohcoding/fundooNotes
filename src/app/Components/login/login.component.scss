@@ -1,6 +1,21 @@
+.Outerdiv{
+  border: 0px solid rgb(255, 253, 253);
+  height: 600;
+  width: 550;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+  margin-right: 50px;
+  // padding: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
 .mainLogin{
    
     padding: 10px;
+
    
     
 }
@@ -11,12 +26,14 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid #d5d2d2;
+    border: 1px solid grey;
     border-radius: 10px;
-    width: 440px;
-    height: 480px;
+    width: 335px;
+    height: 420px;
     padding:20px;
     margin-top: 20px;
+    // margin-left: auto;
+    // margin-right: auto;
     
 }
 .Lcontainer a{
@@ -28,6 +45,10 @@
 }
 .Lcontainer span{
   font-size: 25px;
+}
+form :-ms-input-placeholder{
+  border: 2px solid #d5d2d2;
+  border-radius: 20px;
 }
 
 
@@ -53,6 +74,7 @@
 
 mat-form-field.mat-form-field {
     font-size: 14px;
+    width: 100%;
   }
   // .Lcontainer input{
 //     width: 200px;

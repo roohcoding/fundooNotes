@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/sevice/userservice/user.service';
+
 
 @Component({
   selector: 'app-register',
@@ -7,38 +9,58 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  registerForm:FormGroup;
+  registerForm!:FormGroup;
   submitted = false;
+  
+  
 
+  constructor(private formBuilder: FormBuilder, private user: UserService) {};
 
-  constructor(private formBuilder: FormBuilder) { }
+ 
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required],
+      FirstName: ['', Validators.required],
+      LastName: ['', Validators.required],
+      Email: ['', [Validators.required, Validators.email]],
+      Password: ['', [Validators.required, Validators.minLength(6)]],
+      ConfirmPassword: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
+  
 
+  onSubmit() {
+    this.submitted = true;
 
-  get f() { return this.registerForm.controls; }
+    // stop here if form is invalid
+    if (this.registerForm.valid) {
+      console.log ("valid data",this.registerForm.value)
+      let data={
+        
+          firstName: this.registerForm.value.FirstName,
+          lastName: this.registerForm.value.LastName,
+          email: this.registerForm.value.Email,
+          password: this.registerForm.value.Password,
+           
+        
 
-    onSubmit() {
-        this.submitted = true;
-
-        // stop here if form is invalid
-        if (this.registerForm.invalid) {
-          return;
       }
-}
+      this.user.register(data).subscribe((result:any)=>{
+        console.log("register response",result);
+      })
 
-onReset() {
-this.submitted = false;
-this.registerForm.reset();
+      }
+      else{
+        console.log ("Invalid data",this.registerForm.value)
+      }
+     
+      
+
+      
+  }
 }
-}
+  
+
+
 
 

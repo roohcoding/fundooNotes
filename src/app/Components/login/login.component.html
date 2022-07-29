@@ -1,3 +1,4 @@
+<div class="Outerdiv">
 <div fxLayout="column" fxLayoutAlign="center center" class="mainlogin">
     <div class="Lcontainer">
         <div fxLayout="column" fxLayoutAlign="center center ">
@@ -16,23 +17,36 @@
             <h1>Sign in</h1>
             <h3>Use your Google Account </h3>
         </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div fxLayout="column" fxLayoutAlign="center">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email or phone</mat-label>
+                    <input formControlName="email" matInput placeholder="" />
+                </mat-form-field>
 
-        <div fxLayout="column" fxLayoutAlign="center">
-            <mat-form-field appearance="outline">
-                <mat-label>Email or phone</mat-label>
-                <input matInput placeholder="Email or phone">
-            </mat-form-field>
-            <a routerLink="/forgot-email" href="#">Forgot email?</a>
-        </div><br>
+                <mat-form-field appearance="outline">
+                    <mat-label>password</mat-label>
+                    <input formControlName="password" matInput placeholder="" />
+                    <!-- <mat-hint>Enter valid password</mat-hint> -->
+                    <!-- <mat-error>Enter password</mat-error> -->
+                </mat-form-field>
+                <a routerLink="/forgot-password" href="#">Forgot password?</a>
 
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-            <mat-hint class="style">Not your computer? Use Guest mode to sign in privately. <br><a href="#">Learn more</a></mat-hint>
+            </div>
            
-        </div><br><br>
 
-        <div class="b-links" fxLayout="row" fxLayoutAlign="space-between center" >
-            <a routerLink="/register" href="#">Create account</a>
-            <button>Next</button>
-        </div>
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+                <mat-hint class="style">Not your computer? Use Guest mode to sign in privately. <a href="#">Learn
+                        more</a></mat-hint>
+
+            </div><br>
+
+            <div class="b-links" fxLayout="row" fxLayoutAlign="space-between center">
+                <a routerLink="/register" href="#">Create account</a>
+                <button>Next</button>
+            </div>
+
+        </form>
     </div>
+</div>
 </div>

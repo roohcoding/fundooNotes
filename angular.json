@@ -76,7 +76,8 @@
               "browserTarget": "fundooNotes:build:production"
             },
             "development": {
-              "browserTarget": "fundooNotes:build:development"
+              "browserTarget": "fundooNotes:build:development",
+            
             }
           },
           "defaultConfiguration": "development"
@@ -85,6 +86,7 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "fundooNotes:build"
+           
           }
         },
         "test": {

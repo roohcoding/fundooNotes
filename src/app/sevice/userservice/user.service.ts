@@ -11,35 +11,52 @@ export class UserService {
 
 
   register(data:any){
-
-    let header={
-      headers: new HttpHeaders({
+    let header ={
+      headers : new HttpHeaders({
+        'Content-Type': 'application/json',
         
-        'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
-      'Authorization': 'Bearer szdp79a2kz4wh4frjzuqu4sz6qeth8m3',
-      'Content-Type': 'application/json',
-      'accept': '*/*' ,
-
       })
     }
+
    return this.http.postservice('https://localhost:44307/User/Register', data, false, header)
   }
+   
+  
 
   login(data:any){
     let header={
       headers: new HttpHeaders({
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'accept': '*/*'
       })
     }
-    return this.http.postservice('https://localhost:44307/User/LogIn', data, false, header)
+    return this.http.postservice(`https://localhost:44307/User/LogIn/${data.email}/${data.password}`, data, false, header)
   }
 
 
 
-  // register(){}
-  // register(){}
+  forgotpassword(data : any){
+    let header ={
+      headers : new HttpHeaders({
+        'content-type': 'application/json'
+      })
+    }
+
+    return this.http.postservice(`https://localhost:44307/User/Forgotpassword/${data.email}`, data, false, header)
+  }
+
+
+
+
+  restpassword(data : any){
+    let header ={
+      headers : new HttpHeaders({
+        'content-type': 'application/json'
+      })
+    }
+
+    return this.http.postservice('https://localhost:44307/User/Resetpassword', data, false, header)
+  }
 
 
 }

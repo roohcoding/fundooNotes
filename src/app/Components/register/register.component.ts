@@ -41,9 +41,6 @@ export class RegisterComponent implements OnInit {
           lastName: this.registerForm.value.LastName,
           email: this.registerForm.value.Email,
           password: this.registerForm.value.Password,
-           
-        
-
       }
       this.user.register(data).subscribe((result:any)=>{
         console.log("register response",result);

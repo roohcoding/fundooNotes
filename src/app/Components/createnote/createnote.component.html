@@ -1,1 +1,17 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+    <div fxLayout="column" style=" border-radius: 8px; width : 600px; padding: 20px">
+        <mat-card>
+            <div *ngIf="isShow">
+                <input type="text" placeholder="Title" style="width : 520px; height: 20px;">
+            </div>
+            <div *ngIf="isShow || !isShow" (click)="show()">
+                <input type="text" placeholder="Take a note" style="width :520px; height: 20px;">
+            </div>
+            <div *ngIf="isShow" fxLayout="row" fxLayoutAlign="space-between center">
+                <app-icons></app-icons>
+                <button (click)="close()" mat-button>Close</button>
+            </div>
+        </mat-card>
 
+    </div>
+</div>

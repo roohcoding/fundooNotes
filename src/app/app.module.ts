@@ -18,10 +18,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 import { GetallnotesComponent } from './Components/getallnotes/getallnotes.component';
 import { ArchiveComponent } from './Components/archive/archive.component';
 import { TrashComponent } from './Components/trash/trash.component';
 import { CreatenoteComponent } from './Components/createnote/createnote.component';
+import { IconsComponent } from './Components/icons/icons.component';
+import { DisplayComponent } from './Components/display/display.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,8 @@ import { CreatenoteComponent } from './Components/createnote/createnote.componen
     ArchiveComponent,
     TrashComponent,
     CreatenoteComponent,
+    IconsComponent,
+    DisplayComponent,
 
   ],
   imports: [
@@ -50,7 +56,10 @@ import { CreatenoteComponent } from './Components/createnote/createnote.componen
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    MatButtonModule
+
     
   ],
   providers: [],

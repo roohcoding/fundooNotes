@@ -4,18 +4,53 @@
             <mat-icon>menu</mat-icon>
         </button>
 
-        
-            <div>
-                <div fxFlex="10" fxLayout="row" fxFlex.gt="500px" matTooltip="Welcome to Fundoo Notes">
-                    <img id="google-keep-logo" src="../../../assets/fundoo.png" style="width: 30px ;height:32px"  alt="img"/>
+        <div>
+            <div fxFlex="10" fxLayout="row" fxLayoutAlign="space-between center" >
+                <img id="logo" src="../../../assets/fundoo.png" style="width: 50px ;height:40px"
+                    alt="img" />
 
-                    <h3 class="example-app-name" fxLayoutAlign="center center">
-                        <mat-card-title class="fundoo" fxLayout="row" fxLayoutAlign="end center">
-                            <span id="title">FundooNote</span>
-                        </mat-card-title>
-                    </h3>
-                </div>
+                <h2 class="example-app-name" fxLayoutAlign="center center">
+                    <mat-card-title class="fundoo" fxLayout="row" fxLayoutAlign="end center">
+                        <span id="title">FundooNote</span>
+                    </mat-card-title>
+                </h2>
             </div>
+        </div>
+
+
+        <div class="searchdiv" fxLayoutAlign="space-between center">
+            <mat-form-field appearance="outline" fxHide.xs [style.fontSize.px]="2" class="search" fxFlex="90">
+                <button mat-icon-button class="search-button">
+                    <mat-icon id="search" matTooltip="Search">search</mat-icon>
+                </button>
+
+                <input fxFlex="50" matInput placeholder="Search" [style.fontSize.px]="18" class="search-window"
+                    autocomplete="off" type="text" />
+            </mat-form-field>
+        </div>
+        <div fxFlex="20" class="settingbtn" div fxLayout="row" fxLayoutAlign="end end">
+            <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+                <img src="./../../../assets/refresh.svg" alt="img" class="icon">
+            </button>
+        </div>&nbsp;&nbsp;
+        <div fxflex="20"> <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+            <img src="./../../../assets/view_agenda.svg" alt="img" class="icon">
+        </button>
+        </div>&nbsp;&nbsp;
+        <div fxflex="20">  <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+            <img src="./../../../assets/settings.svg" alt="img" class="icon">
+        </button>
+        </div>&nbsp;&nbsp;
+        <div fxflex="20">  <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+            <img src="./../../../assets/apps.svg" alt="img" class="icon">
+        </button>
+        </div>&nbsp;&nbsp;
+        <div fxflex="20">  <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+            <img src="./../../../assets/profile.svg" alt="img" class="icon">
+        </button>
+        </div>
+       
+
 
     </mat-toolbar>
 
@@ -24,24 +59,20 @@
             fixedTopGap="56">
             <mat-nav-list>
                 <a mat-list-item routerLink="/dashboard/notes">
-                    <div class="icon1" id="side-icons"> <img
-                            src="../../../assets/lightbulb_FILL0_wght400_GRAD0_opsz48.svg" alt=""></div>Notes
+                    <div class="icon1" id="side-icons"> <img src="../../../assets/lightbulb.svg" alt=""></div>Notes
                 </a>
-                <a mat-list-item routerLink=".">
-                    <div class="icon1" id="side-icons"><img
-                            src="../../../assets/notifications_FILL0_wght400_GRAD0_opsz48.svg" alt=""></div>Reminders
+                <a mat-list-item routerLink="/dashboard/reminder">
+                    <div class="icon1" id="side-icons"><img src="../../../assets/notifications.svg" alt=""></div>
+                    Reminders
                 </a>
-                <a mat-list-item routerLink=".">
-                    <div class="icon1" id="side-icons"><img src="../../../assets/edit_FILL0_wght400_GRAD0_opsz48.svg"
-                            alt=""></div>Edit labels
+                <a mat-list-item routerLink="/dashboard/editlable">
+                    <div class="icon1" id="side-icons"><img src="../../../assets/edit.svg" alt=""></div>Edit labels
                 </a>
                 <a mat-list-item routerLink="/dashboard/archive">
-                    <div class="icon1" id="side-icons"><img src="../../../assets/archive_FILL0_wght400_GRAD0_opsz48.svg"
-                            alt=""></div>Archive
+                    <div class="icon1" id="side-icons"><img src="../../../assets/archive.svg" alt=""></div>Archive
                 </a>
                 <a mat-list-item routerLink="/dashboard/trash">
-                    <div class="icon1" id="side-icons"><img src="../../../assets/delete_FILL0_wght400_GRAD0_opsz48.svg"
-                            alt=""></div>Trash
+                    <div class="icon1" id="side-icons"><img src="../../../assets/delete.svg" alt=""></div>Trash
                 </a>
             </mat-nav-list>
         </mat-sidenav>

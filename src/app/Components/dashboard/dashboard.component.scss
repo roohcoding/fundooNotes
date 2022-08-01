@@ -24,24 +24,71 @@
     flex: 1;
 
   }
-  .icons{
+  .icon1{
     display: flex;
     height: 42px;
     width: 42px;
     align-items: center;
     justify-content: center;
-    margin-left: 50px;
+    margin-left: 0px;
+    box-sizing: border-box;
+    display: inline-block;
   
   }
-  .icons:hover{
-    background-color: rgba(224, 223, 221, 0.995);
+  .icon1:hover{
+    // background-color: rgba(245, 243, 241, 0.925);
     border-radius: 20px;
     cursor: pointer;
   }
-  .icons > img{
+  .icon1 > img{
     height: 30px;
     margin-top: 5px;
   }
+
+  
+  .searchdiv{
+    width: 50%;
+    margin-left: 70px;
+  }
+  #search {
+    opacity: 0.8;
+  }
+  .search {
+    border-radius: 10%;
+    width: 50%;
+    background: rgba(0, 0, 0, 0.02);
+  }
+
+  .settingbtn{
+    margin-left: 20px;
+    padding-left: 0%;
+    border:none;
+   
+  }
+  .icon{
+    display: flex;
+    height: 25px;
+    width: 25px;
+    display: inline-block;
+    // background-color: #FFFFFF;
+    border:none;
+    border: none!important;
+  outline: none;
+ 
+  }
+  .icon:hover{
+    background-color: rgba(245, 243, 241, 0.925);
+    // border:white;
+    cursor: pointer;
+   
+  }
+  .icon > img{
+    height: 25px;
+    margin-top: 5px;
+  }
+  
+  
+
   
   .example-is-mobile .example-sidenav-container {
     /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the

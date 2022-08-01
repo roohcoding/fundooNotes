@@ -6,13 +6,22 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { LoginComponent } from './Components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import { FlexLayoutModule} from '@angular/flex-layout';
-import {FormsModule} from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+import { GetallnotesComponent } from './Components/getallnotes/getallnotes.component';
+import { ArchiveComponent } from './Components/archive/archive.component';
+import { TrashComponent } from './Components/trash/trash.component';
+import { CreatenoteComponent } from './Components/createnote/createnote.component';
 
 @NgModule({
   declarations: [
@@ -21,19 +30,28 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-   
+    DashboardComponent,
+    GetallnotesComponent,
+    ArchiveComponent,
+    TrashComponent,
+    CreatenoteComponent,
+
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
     FlexLayoutModule,
     FormsModule,
-    HttpClientModule
-
+    HttpClientModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatIconModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

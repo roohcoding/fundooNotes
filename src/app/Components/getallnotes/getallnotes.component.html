@@ -1,2 +1,2 @@
-<app-createnote></app-createnote>
-<app-display></app-display>
+<app-createnote (messageEvent)="receiveMessage($event)"></app-createnote>
+<app-display [childMessage]="parentMessage"></app-display>

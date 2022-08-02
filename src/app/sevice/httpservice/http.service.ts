@@ -21,7 +21,9 @@ export class HttpService {
     return this.httpClient.post(url, data, token && httpOption)
   }
 
-  getservice() {}
+  getservice(url:string, token: boolean=false, httpOption :any) {
+    return this.httpClient.get(url,  token && httpOption)
+  }
 
 
  

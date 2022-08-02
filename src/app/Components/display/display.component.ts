@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NoteService } from 'src/app/sevice/noteservice/note.service';
 
 @Component({
   selector: 'app-display',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./display.component.scss']
 })
 export class DisplayComponent implements OnInit {
-
-  constructor() { }
+  @Input() childMessage: any;
+ 
+  constructor(private note:NoteService) { }
 
   ngOnInit(): void {
   }
-
+  
+ 
 }

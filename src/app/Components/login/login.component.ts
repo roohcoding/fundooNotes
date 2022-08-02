@@ -38,14 +38,15 @@ export class LoginComponent implements OnInit {
         password:this.loginForm.value.password,
       }
       this.user.login(reqdata).subscribe((response:any)=>{
-        console.log("login response =====",reqdata);
+        console.log("token : ", response.data);
+          localStorage.setItem("token", response.data)
         
       })
   }
       else{
         console.log("invalid data",this.loginForm.value);
       }
-     
+      
 
 
 

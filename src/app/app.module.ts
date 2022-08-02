@@ -27,6 +27,7 @@ import { CreatenoteComponent } from './Components/createnote/createnote.componen
 import { IconsComponent } from './Components/icons/icons.component';
 import { DisplayComponent } from './Components/display/display.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +59,8 @@ import { DisplayComponent } from './Components/display/display.component';
     MatListModule,
     MatIconModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    
 
     
   ],

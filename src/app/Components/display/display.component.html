@@ -1,10 +1,10 @@
-<div style="width: 300px;">
-    <mat-card>
-        <h3>Title</h3>
-        <p>Description</p>
-        <div fxLayout="row" fxLayoutAlign="space-between center">
+<div *ngFor="let note of childMessage">
+    <div fxLayout="row" fxLayoutAlign="center center" style="width: 300px;">
+        <mat-card>
+            <h3>{{note.title}}</h3>
+            <p>{{note.description}}</p>
+            <!-- <p>{{note.colour}}</p> -->
             <app-icons></app-icons>
-            <button mat-button>Close</button>
-        </div>
-    </mat-card>
+        </mat-card>
+    </div>
 </div>

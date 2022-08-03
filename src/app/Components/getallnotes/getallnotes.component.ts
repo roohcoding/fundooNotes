@@ -8,6 +8,7 @@ import { NoteService } from 'src/app/sevice/noteservice/note.service';
 })
 export class GetallnotesComponent implements OnInit {
   
+  
   parentMessage:any;
 
   constructor(private note :NoteService) { }
@@ -20,6 +21,7 @@ export class GetallnotesComponent implements OnInit {
       console.log(res.data);
       
       this.parentMessage = res.data;
+      this.parentMessage.reverse();
     })
     
     }
@@ -27,5 +29,15 @@ export class GetallnotesComponent implements OnInit {
       console.log(event);
       this.getNotes();
   }
+  receiveMessagefromdisplaycard($event: any) {
+    console.log("insidegetallnotes", $event);
+    this.getNotes()
+  }
+
+  updatedData(value: any) {
+
+    this.getNotes();
+  }
+  
 
 }

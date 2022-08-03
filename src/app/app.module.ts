@@ -20,12 +20,14 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
 import { GetallnotesComponent } from './Components/getallnotes/getallnotes.component';
 import { ArchiveComponent } from './Components/archive/archive.component';
 import { TrashComponent } from './Components/trash/trash.component';
 import { CreatenoteComponent } from './Components/createnote/createnote.component';
 import { IconsComponent } from './Components/icons/icons.component';
 import { DisplayComponent } from './Components/display/display.component';
+import { UpdateComponent } from './Components/update/update.component';
 
 
 @NgModule({
@@ -42,6 +44,7 @@ import { DisplayComponent } from './Components/display/display.component';
     CreatenoteComponent,
     IconsComponent,
     DisplayComponent,
+    UpdateComponent,
 
   ],
   imports: [
@@ -59,7 +62,7 @@ import { DisplayComponent } from './Components/display/display.component';
     MatListModule,
     MatIconModule,
     MatCardModule,
-    MatButtonModule,
+    MatButtonModule,MatDialogModule
     
 
     

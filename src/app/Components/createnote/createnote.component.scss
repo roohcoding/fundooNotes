@@ -1,15 +1,24 @@
-.title input{
-    width : 520px;
-     height: 20px;
+.title input {
+    width: 520px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+
 }
 
-.desc input{
-    width :520px;
-     height: 20px;
+.desc input {
+    width: 520px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
 }
 
-.style{
+.style {
     border-radius: 8px;
-     width : 600px;
-     padding: 20px;
+    width: 600px;
+    padding: 20px;
 }

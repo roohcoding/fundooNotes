@@ -2,7 +2,7 @@
     <div fxLayout="column" class="style">
         <mat-card>
             <div *ngIf="isShow" class="title">
-                <input type="text" placeholder="Title" [(ngModel)]="title"> 
+                <input type="text" placeholder="Title" [(ngModel)]="title">
             </div>
             <div *ngIf="isShow || !isShow" (click)="show()" class="desc">
                 <input type="text" placeholder="Take a note" [(ngModel)]="description">
@@ -12,5 +12,6 @@
                 <button (click)="close()" mat-button>Close</button>
             </div>
         </mat-card>
+        
     </div>
 </div>

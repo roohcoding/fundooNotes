@@ -16,19 +16,8 @@ export class IconsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  archive(){
-    console.log('Icons ArchiveNote Api Calling..')
-    let data={
-      noteIdList:[this.childmessage],
-      isArchived: true
-    }
-    console.log(data)
-    this.note.archieveNote(data).subscribe((res:any)=>{
-      console.log(res)
-      this.messageEvent.emit(this.message='Note Archived')
-      
-    })
+ 
     
   }
 
-}
+

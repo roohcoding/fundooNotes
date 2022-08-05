@@ -21,6 +21,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatMenuModule} from '@angular/material/menu';
 import { GetallnotesComponent } from './Components/getallnotes/getallnotes.component';
 import { ArchiveComponent } from './Components/archive/archive.component';
 import { TrashComponent } from './Components/trash/trash.component';
@@ -62,7 +63,7 @@ import { UpdateComponent } from './Components/update/update.component';
     MatListModule,
     MatIconModule,
     MatCardModule,
-    MatButtonModule,MatDialogModule
+    MatButtonModule,MatDialogModule,MatMenuModule
     
 
     

@@ -61,7 +61,7 @@ getallnotesservice() {
   
 }
 
-archievenote(data:any,noteId:any) {
+archieveNote(data:any,noteId:any) {
   console.log(data,noteId);
   let header = {
     headers: new HttpHeaders({

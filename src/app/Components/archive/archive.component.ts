@@ -20,7 +20,7 @@ export class ArchiveComponent implements OnInit {
   archivenote(){
     console.log('GetArchiveNotes Api Calling..')
     this.note.getallnotesservice().subscribe((res:any)=>{
-      this.result=res.data.data
+      this.result=res.data
       console.log(this.result)
     })
   }

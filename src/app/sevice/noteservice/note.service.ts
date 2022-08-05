@@ -46,4 +46,33 @@ updatenote(data:any,noteID:any){
     return this.httpservice.putservice(`https://localhost:44307/api/Note/UpdateNote/${noteID}`, data, true, header)
 }
 
+getallnotesservice() {
+
+
+  let header = {
+    headers: new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization':  'Bearer ' + this.token		
+    })
+
+  }
+  
+  return this.httpservice.getservice(`https://localhost:44307/api/Note`,true,header)
+  
+}
+
+archievenote(data:any,noteId:any) {
+  console.log(data,noteId);
+  let header = {
+    headers: new HttpHeaders({
+      
+      'Content-Type': 'application/json',
+      'Authorization' : 'bearer '+ this.token,
+
+    }),
+  };
+  return this.httpservice.putservice( `https://localhost:44307/api/Note/ArchiveNote/${noteId}`, data, true,header );
+}
+
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NoteService } from 'src/app/sevice/noteservice/note.service';
 
 @Component({
@@ -8,10 +8,12 @@ import { NoteService } from 'src/app/sevice/noteservice/note.service';
 })
 export class GetallnotesComponent implements OnInit {
   
+  @Output() updatedisplay = new EventEmitter<string>();
   
   parentMessage:any;
+  
 
-  constructor(private note :NoteService) { }
+  constructor(private note:NoteService) { }
 
   ngOnInit(): void {
     this.getNotes()
@@ -29,13 +31,10 @@ export class GetallnotesComponent implements OnInit {
       console.log(event);
       this.getNotes();
   }
-  receiveMessagefromdisplaycard($event: any) {
-    console.log("insidegetallnotes", $event);
-    this.getNotes()
-  }
+ 
 
-  updatedData(value: any) {
-
+  updatedData(event:any) {
+    console.log(event);
     this.getNotes();
   }
   

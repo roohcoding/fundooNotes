@@ -6,19 +6,25 @@
 
     }
     
-    .note title{
-    width:1000px;
-    min-height:800px;
-    max-height:auto;
-    margin: 20px;
+    .title{
+    width:200px;
      max-width: 800px;
-     
+     border: none !important;
+     background-color: transparent;
     }
     
-    .note desc{
-    margin-top: 800px;
+    .desc{
+        width:200px;
+        margin-bottom: 10px;
+        border: none !important;
+        background-color: transparent;
     }
     
     .icon{
     padding-left: -20px;
+    }
+    .button{
+        border: none;
+        outline: none;
+        cursor: pointer;
     }

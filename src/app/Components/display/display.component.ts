@@ -11,6 +11,9 @@ import { UpdateComponent } from '../update/update.component';
 })
 export class DisplayComponent implements OnInit {
   @Input() childMessage: any;
+  @Output() updatedisplay = new EventEmitter<string>();
+  @Output() displayArchive = new EventEmitter<string>();
+  
  
   constructor(private note:NoteService,public dialog: MatDialog) { }
 
@@ -18,16 +21,26 @@ export class DisplayComponent implements OnInit {
   }
   openDialog(note:any): void {
     const dialogRef = this.dialog.open(UpdateComponent, {
-      width: 'auto',
-      height:'auto',
+      width: '350px',
+      height:'180px',
      data:note,
     });
 
     dialogRef.afterClosed().subscribe((result:any) => {
       console.log('The dialog was closed');
+      this.updatedisplay.emit(result);
       
     });
   }
+
+  operation(value: any) {
+    this.updatedisplay.emit(value);
+  }
+
+  receiveMessageArchive(value: any) {
+    this.displayArchive.emit(value);
+  }
+
 }
   
  

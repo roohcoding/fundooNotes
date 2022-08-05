@@ -9,7 +9,9 @@ import { NoteService } from 'src/app/sevice/noteservice/note.service';
   styleUrls: ['./update.component.scss']
 })
 export class UpdateComponent implements OnInit {
+  
   @Output() updatedisplay = new EventEmitter<string>();
+  isShow=false;
   title:any;
   description:any;
   noteID:any;
@@ -28,12 +30,8 @@ export class UpdateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   
     console.log("inside update" ,this.data);
-   
   }
- 
-  
 
   onSubmit(){
     let data={
@@ -41,17 +39,22 @@ export class UpdateComponent implements OnInit {
       'description': this.description,
       'colour': "white"
     }
-   
     this.note.updatenote(data,this.noteID).subscribe((res:any)=>{
       console.log("note is updated:  ",res);
+      this.onNoClick();
       this.updatedisplay.emit(res)
+     
     })
    
   }
- 
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+ 
+  receiveMessage(event:any){
+    console.log(event);
+    this.colour=event;
   }
 
 }

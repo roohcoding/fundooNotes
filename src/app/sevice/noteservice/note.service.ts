@@ -61,18 +61,42 @@ getallnotesservice() {
   
 }
 
-archieveNote(data:any,noteId:any) {
-  console.log(data,noteId);
-  let header = {
-    headers: new HttpHeaders({
-      
-      'Content-Type': 'application/json',
-      'Authorization' : 'bearer '+ this.token,
+archiveNote(data: any, NoteId:any){
+  console.log(this.token);
+  console.log(NoteId);
 
+  let header = {
+    headers: new HttpHeaders({    
+      'Content-Type': 'application/json',
+      'Authorization' : 'bearer ' + this.token,
     }),
   };
-  return this.httpservice.putservice( `https://localhost:44307/api/Note/ArchiveNote/${noteId}`, data, true,header );
+  return this.httpservice.putservice(`https://localhost:44307/api/Note/ArchiveNote/${NoteId}`,{ }, true, header);
 }
 
+trashNote(data:any,NoteId:any){
+  console.log(this.token);
+  console.log(NoteId);
 
+  let header = {
+    headers: new HttpHeaders({    
+      'Content-Type': 'application/json',
+      'Authorization' : 'bearer ' + this.token,
+    }),
+  };
+  return this.httpservice.putservice(`https://localhost:44307/api/Note/Trash/${NoteId}`,{ }, true, header);
+}
+
+ChangeColor(data:any){
+  console.log(data);
+
+  let header={
+    headers: new HttpHeaders({
+      'Content-Type' : 'application/json'
+    })
+  }
+  return this.httpservice.putservice(`https://localhost:44307/api/Note/changeColour`, data, true, header)
+
+
+}
 }

@@ -17,16 +17,26 @@ export class ArchiveComponent implements OnInit {
     this.archivenote();
   }
 
-  archivenote(){
-    console.log('GetArchiveNotes Api Calling..')
-    this.note.getallnotesservice().subscribe((res:any)=>{
-      this.result=res.data
-      console.log(this.result)
-    })
+  archivenote() {
+    this.note.getallnotesservice().subscribe((res: any) => {
+      console.log(res.data);
+       this.result=res.data;
+       this.result.reverse();
+       this.result = this.result.filter((object: any) => {
+        return object.isArchive === true;
+      })
+     
+    });
   }
-  receiveMessageArchive(event:any){
+  receiveMessagearchive(event:any){
     console.log(event)
     this.archivenote()
   }
 
 }
+
+
+
+
+
+

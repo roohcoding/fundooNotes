@@ -48,15 +48,15 @@ export class UserService {
 
 
 
-  restpassword(data : any){
-    let header ={
-      headers : new HttpHeaders({
-        'content-type': 'application/json'
-      })
-    }
+  // restpassword(data : any){
+  //   let header ={
+  //     headers : new HttpHeaders({
+  //       'content-type': 'application/json'
+  //     })
+  //   }
 
-    return this.http.postservice('https://localhost:44307/User/Resetpassword', data, false, header)
-  }
+  //   return this.http.postservice('https://localhost:44307/User/Resetpassword', data, false, header)
+  // }
 
 
 }

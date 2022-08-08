@@ -11,7 +11,7 @@ export class GetallnotesComponent implements OnInit {
   @Output() updatedisplay = new EventEmitter<string>();
   
   parentMessage:any;
-  
+ 
 
   constructor(private note:NoteService) { }
 
@@ -21,21 +21,28 @@ export class GetallnotesComponent implements OnInit {
   getNotes(){
     this.note.getallnotes().subscribe((res:any)=>{
       console.log(res.data);
-      
       this.parentMessage = res.data;
       this.parentMessage.reverse();
+      
+      
     })
     
     }
+    //for creating note
     receiveMessage(event:any){
       console.log(event);
       this.getNotes();
   }
  
-
+//update
   updatedData(event:any) {
     console.log(event);
     this.getNotes();
+  }
+
+  receiveMessagearchive(event:any){
+    console.log(event)
+    this.getNotes()
   }
   
 

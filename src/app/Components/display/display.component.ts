@@ -10,10 +10,11 @@ import { UpdateComponent } from '../update/update.component';
   styleUrls: ['./display.component.scss']
 })
 export class DisplayComponent implements OnInit {
-  @Input() childMessage: any;
+  @Input() childMessage: any; //input decorator to allow the data to be passed by templates(child componenet.ts)
   @Output() updatedisplay = new EventEmitter<string>();
   @Output() displayArchive = new EventEmitter<string>();
   
+  result:any;
  
   constructor(private note:NoteService,public dialog: MatDialog) { }
 
@@ -33,13 +34,15 @@ export class DisplayComponent implements OnInit {
     });
   }
 
+  receiveMessageArchive(event: any) {
+    this.displayArchive.emit(event);
+  }
+
   operation(value: any) {
     this.updatedisplay.emit(value);
   }
 
-  receiveMessageArchive(value: any) {
-    this.displayArchive.emit(value);
-  }
+ 
 
 }
   

@@ -29,24 +29,24 @@
             </mat-form-field>
         </div>
         <div fxFlex="20" class="settingbtn" div fxLayout="row" fxLayoutAlign="end end">
-            <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+            <button mat-icon-button  matTooltip="Refresh" (click)="reloadCurrentPage" aria-label="Example icon button with a vertical three dot icon">
                 <img src="./../../../assets/refresh.svg" alt="img" class="icon">
             </button>
         </div>&nbsp;&nbsp;
-        <div fxflex="20"> <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <div fxflex="20"> <button mat-icon-button matTooltip="agenda" aria-label="Example icon button with a vertical three dot icon">
             <img src="./../../../assets/view_agenda.svg" alt="img" class="icon">
         </button>
         </div>&nbsp;&nbsp;
-        <div fxflex="20">  <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <div fxflex="20">  <button mat-icon-button matTooltip="Settings" aria-label="Example icon button with a vertical three dot icon">
             <img src="./../../../assets/settings.svg" alt="img" class="icon">
         </button>
         </div>&nbsp;&nbsp;
-        <div fxflex="20">  <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <div fxflex="20">  <button mat-icon-button  matTooltip="Apps" aria-label="Example icon button with a vertical three dot icon">
             <img src="./../../../assets/apps.svg" alt="img" class="icon">
         </button>
         </div>&nbsp;&nbsp;
-        <div fxflex="20">  <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-            <img src="./../../../assets/profile.svg" alt="img" class="icon">
+        <div fxflex="20">  <button mat-icon-button  matTooltip="signout"  aria-label="Example icon button with a vertical three dot icon">
+            <img (click)="logout()" routerLink="./login" src="./../../../assets/profile.svg" alt="img" class="icon">
         </button>
         </div>
        

@@ -1,4 +1,4 @@
-<div class="main" fxLayout="row" fxLayout="row wrap" fxLayoutAlign="space-between center" fxFlex=100>
+<div class="main" fxLayout="row" fxLayout="row wrap" fxLayoutAlign="space-between center"  [style.background]="colour" fxFlex=100>
    <div fxLayout="column" fxLayoutAlign="space-between center">
         <div  class="title">
             <input type="text" placeholder="Title" [(ngModel)]="title">
@@ -8,7 +8,7 @@
         </div>
     </div><br>
         <div fxLayout="row" fxLayoutAlign="space-between center">
-            <app-icons></app-icons>&nbsp;
+            <app-icons [noteObj]="data" (changeNoteEvent)="iconRefresh($event)"></app-icons>&nbsp;
             <button  mat-button (click)="onSubmit()">Close</button>
         </div>
 </div>

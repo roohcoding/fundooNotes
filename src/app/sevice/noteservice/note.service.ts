@@ -1,3 +1,4 @@
+import { ConfigurableFocusTrap } from '@angular/cdk/a11y';
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpService } from '../httpservice/http.service';
@@ -61,7 +62,20 @@ getallnotesservice() {
   
 }
 
-archiveNote(data: any, NoteId:any){
+archiveNote( NoteId:any){
+  console.log(this.token);
+  console.log(NoteId);
+  let header = {
+    headers: new HttpHeaders({    
+      'Content-Type': 'application/json',
+      'Authorization' : 'bearer ' + this.token,
+    }),
+  };
+ 
+  return this.httpservice.putservice(`https://localhost:44307/api/Note/ArchiveNote?NoteId=${NoteId}`,{}, true, header);
+}
+
+trashNote(NoteId:any){
   console.log(this.token);
   console.log(NoteId);
 
@@ -71,23 +85,12 @@ archiveNote(data: any, NoteId:any){
       'Authorization' : 'bearer ' + this.token,
     }),
   };
-  return this.httpservice.putservice(`https://localhost:44307/api/Note/ArchiveNote/${NoteId}`,{ }, true, header);
+  
+  return this.httpservice.putservice(`https://localhost:44307/api/Note/Trash?NoteId=${NoteId}`,{}, true, header);
 }
 
-trashNote(data:any,NoteId:any){
+changecolour(data:any){
   console.log(this.token);
-  console.log(NoteId);
-
-  let header = {
-    headers: new HttpHeaders({    
-      'Content-Type': 'application/json',
-      'Authorization' : 'bearer ' + this.token,
-    }),
-  };
-  return this.httpservice.putservice(`https://localhost:44307/api/Note/Trash/${NoteId}`,{ }, true, header);
-}
-
-ChangeColor(data:any){
   console.log(data);
 
   let header={
@@ -95,8 +98,21 @@ ChangeColor(data:any){
       'Content-Type' : 'application/json'
     })
   }
-  return this.httpservice.putservice(`https://localhost:44307/api/Note/changeColour`, data, true, header)
+  return this.httpservice.putservice(`https://localhost:44307/api/Note/changeColour?noteId=${data.noteId}`,data, true, header)
+}
 
+delete(noteId: any){
+  console.log(noteId);
+  console.log("Note deleted");
+  let header={
+    headers: new HttpHeaders({
+      'Content-Type' : 'application/json'
+    })
+  }
+
+  return this.httpservice.deleteservice(`https://localhost:44307/api/Note/${noteId}`,true,header)
+}
 
 }
-}
+
+

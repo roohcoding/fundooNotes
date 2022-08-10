@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Inject} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { NoteService } from 'src/app/sevice/noteservice/note.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class UpdateComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<UpdateComponent>,
-    @Inject(MAT_DIALOG_DATA) public data:any, private note:NoteService
+    @Inject(MAT_DIALOG_DATA) public data:any, private note:NoteService,private sanv:MatSnackBar
   ) {
     this.title=this.data.title;
     this.description = this.data.description;
@@ -37,12 +38,17 @@ export class UpdateComponent implements OnInit {
     let data={
       'title': this.title,
       'description': this.description,
-      'colour': "white"
+      'colour':this.colour
     }
     this.note.updatenote(data,this.noteID).subscribe((res:any)=>{
       console.log("note is updated:  ",res);
       this.onNoClick();
-      this.updatedisplay.emit(res)
+      this.updatedisplay.emit(res);
+      this.sanv.open('Note Updated','', {
+        duration: 3000,
+        verticalPosition: 'bottom',
+        horizontalPosition: 'start'
+      });
      
     })
    
@@ -53,6 +59,10 @@ export class UpdateComponent implements OnInit {
   }
  
   receiveMessage(event:any){
+    console.log(event);
+    this.colour=event;
+  }
+  iconRefresh(event:any){
     console.log(event);
     this.colour=event;
   }

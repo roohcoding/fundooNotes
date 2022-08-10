@@ -27,7 +27,7 @@ export class CreatenoteComponent implements OnInit {
     let data ={
       title:this.title,
       description:this.description,
-      Colour:"white"
+      Colour:" "
   }
   this.note.addNote(data).subscribe((res :any)=>{
     console.log(res);

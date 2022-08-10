@@ -1,12 +1,12 @@
 <div class="main" fxLayout="row" fxLayout="row wrap" fxFlex=100>
-    <mat-card class="note" *ngFor="let note of childMessage" fxFlex.xs="90">
+    <mat-card class="note" *ngFor="let note of childMessage" [style.background]="note.Colour" fxFlex.xs="90">
         <div>
             <div (click)="openDialog(note)">
                 <div fxLayout="row" fxLayoutAlign="space-between">{{note.title}}</div>
                 <div class="desc">{{note.description}}</div>&nbsp;&nbsp;
             </div>
             <div>
-                <app-icons  [notedata]="note"></app-icons>
+                <app-icons  [noteObj]="note" (changeNoteEvent)="iconRefresh($event)" ></app-icons>
             </div>
         </div>
     </mat-card>

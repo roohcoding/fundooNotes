@@ -13,8 +13,10 @@ export class DisplayComponent implements OnInit {
   @Input() childMessage: any; //input decorator to allow the data to be passed by templates(child componenet.ts)
   @Output() updatedisplay = new EventEmitter<string>();
   @Output() displayArchive = new EventEmitter<string>();
+  @Output() messageEvent = new EventEmitter<any>();
   
-  result:any;
+  childmessage:any;
+  
  
   constructor(private note:NoteService,public dialog: MatDialog) { }
 
@@ -22,9 +24,9 @@ export class DisplayComponent implements OnInit {
   }
   openDialog(note:any): void {
     const dialogRef = this.dialog.open(UpdateComponent, {
-      width: '350px',
-      height:'180px',
-     data:note,
+      width: 'fit-content', height: 'fit-content',
+      data: note,
+      panelClass: 'my-custom-dialog-class'
     });
 
     dialogRef.afterClosed().subscribe((result:any) => {
@@ -34,14 +36,16 @@ export class DisplayComponent implements OnInit {
     });
   }
 
-  receiveMessageArchive(event: any) {
+  recieveArchiveNote(event:any){
     this.displayArchive.emit(event);
   }
 
   operation(value: any) {
     this.updatedisplay.emit(value);
   }
-
+  iconRefresh($event:any){
+    this.updatedisplay.emit("hello");
+  }
  
 
 }

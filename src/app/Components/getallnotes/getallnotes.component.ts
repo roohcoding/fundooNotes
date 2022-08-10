@@ -23,6 +23,10 @@ export class GetallnotesComponent implements OnInit {
       console.log(res.data);
       this.parentMessage = res.data;
       this.parentMessage.reverse();
+      this.parentMessage = this.parentMessage.filter((object: any) => {
+        return object.isTrash=== false && object.isArchive === false
+       
+      })
       
       
     })
@@ -43,6 +47,9 @@ export class GetallnotesComponent implements OnInit {
   receiveMessagearchive(event:any){
     console.log(event)
     this.getNotes()
+  }
+  updatedIcon(e:any){
+    this.getNotes();
   }
   
 

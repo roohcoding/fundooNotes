@@ -1,6 +1,9 @@
 
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +13,7 @@ import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
 export class DashboardComponent implements OnDestroy {
 
   mobileQuery: MediaQueryList;
+  token: any;
 
   fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
 
@@ -25,7 +29,7 @@ export class DashboardComponent implements OnDestroy {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private snav:MatSnackBar, private router: Router) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -34,5 +38,17 @@ export class DashboardComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
+
+  logout()
+  {
+    this.token=localStorage.removeItem("token")
+    this.router.navigateByUrl("/login");
+    this.snav.open('Logout Successfully..!!!','..', {
+      duration: 3000,
+    })
+  }
+  reloadCurrentPage() {
+    window.location.reload();
+   }
 
 }

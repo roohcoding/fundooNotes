@@ -14,10 +14,10 @@ export class ArchiveComponent implements OnInit {
   constructor(public dialog: MatDialog, private note:NoteService) { }
 
   ngOnInit(): void {
-    this.archivenote();
+    this.archiveNote();
   }
 
-  archivenote() {
+  archiveNote() {
     this.note.getallnotesservice().subscribe((res: any) => {
       console.log(res.data);
        this.result=res.data;
@@ -28,9 +28,9 @@ export class ArchiveComponent implements OnInit {
      
     });
   }
-  receiveMessagearchive(event:any){
-    console.log(event)
-    this.archivenote()
+ 
+  updatedIcon(e:any){
+    this.archiveNote();
   }
 
 }

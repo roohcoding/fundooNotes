@@ -1,30 +1,44 @@
-.note{
-    width: 1200px;
-    border-spacing: 10px;
-   box-shadow: 0.2rem gray;
-   padding-left: 60px ;
+.main {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding: 15px;
+    border-radius: 10px;
+    width: 430px;
+    height: fit-content;
+}
 
-    }
-    
-    .title{
-    width:200px;
-     max-width: 800px;
-     border: none !important;
-     background-color: transparent;
-    }
-    
-    .desc{
-        width:200px;
-        margin-bottom: 10px;
-        border: none !important;
-        background-color: transparent;
-    }
-    
-    .icon{
-    padding-left: -20px;
-    }
-    .button{
-        border: none;
-        outline: none;
-        cursor: pointer;
-    }
+.note:hover {
+    box-shadow: 1px 1px 10px #E8E8E8;
+}
+
+.title {
+    width: 99%;
+    height: fit-content;
+    font-weight: 100px;
+    font-size: 20px;
+}
+input,textarea{
+    padding-bottom: 10px;
+    border:0;
+    outline:0;
+    height: fit-content;
+    width: 90%;
+    background-color: transparent;
+  }
+
+.desc {
+    height: fit-content;
+    font-family: sans-serif;   
+    font-size: 20px;
+    width: 99%; 
+    padding-bottom: 10px;
+  }
+
+
+.icons{
+    width:95%
+  }
+  button{
+    padding-top: 15px;
+  }

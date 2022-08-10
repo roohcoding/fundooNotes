@@ -1,41 +1,49 @@
-<div class="main" fxLayout="row" fxLayoutAlign="space-between center" >
-    <button mat-icon-button><img src="../../../assets/add_alert.svg"  alt=""></button>
-    <button mat-icon-button><img src="../../../assets/image_i.svg"  alt=""></button>
-    <div><button mat-icon-button><img src="../../../assets/palette.svg"  alt=""></button></div>
-    <!-- <mat-menu #color="matMenu">
-      <div fxLayout="row wrap" style=" width: 180px;">
-          <div *ngFor="let color of colorArray" class="bg-color">
-              <button mat-icon-button mat-raised-button [matTooltip]="color.name" [style.background]="color.Colorcode" (click)="ChangeColor(color.Colorcode)"></button>
-          </div>
+<div class="main" fxLayout="row" fxLayoutAlign="space-between center">
+  <div *ngIf="!isTrash" class="icons"><img src="../../../assets/notifications.svg" alt=""></div>
+
+ <div *ngIf="!isTrash" class="icons"><img src="../../../assets/image_i.svg" alt=""></div>
+
+ <div mat-icon-button matTooltip="Background options" [matMenuTriggerFor]="color" ><img *ngIf="!isTrash"
+  src="../../../assets/palette.svg" alt=""></div>
+  <mat-menu #color="matMenu">
+    <div fxLayout="row wrap" style=" width: 180px;">
+      <div *ngFor="let color of colorArray" class="bg-color">
+        <button mat-icon-button mat-raised-button [matTooltip]="color.name" [style.background]="color?.Colorcode"
+          (click)=" changeColour(color?.Colorcode)"></button>
       </div>
-    </mat-menu> -->
+    </div>
+  </mat-menu>
 
 
-    <button mat-icon-button><img src="../../../assets/perm_contact.svg"  alt=""></button>
-    <button mat-icon-button > <img *ngIf="!isTrash && !isArchive" src="../../../assets/archive.svg"  alt="archi" (click)="archieve"></button>
-    
-    
-    
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-        <mat-icon><img src="../../../assets/more_vert.svg"  alt=""></mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-         <span *ngIf="!isTrash" (click)="trash">Delete note</span>
-        </button>
-        <button mat-menu-item >
-          <span>Add label</span>
-        </button>
-        <button mat-menu-item>
-          <span>Add drawing</span>
-        </button>
-        <button mat-menu-item>
-            <span>Make a copy</span>
-        </button>
-        <button mat-menu-item>
-            <span>Show checkboxex</span>
-        </button>
-      </mat-menu>
-      
+  <div *ngIf="!isTrash" class="icons"><img src="../../../assets/perm_contact.svg" alt=""></div>
+  <div class="icons"  (click)="archive(noteObj)" *ngIf="!isArchive && !isTrash"><img src="../../../assets/archive.svg" alt=""></div>
+    <div class="icons" (click)="archive(noteObj)" *ngIf="isArchive && !isTrash"><img src="../../../assets/unarchive.svg" alt=""></div>
+        <div fxLayot="row" fxLayoutAlign="star center">
+          <div class="trash1" *ngIf="isTrash" (click)="deleteforever(noteObj)"><img src="../../../assets/delete_forever.svg" alt=""></div>
+          <div class="trash1" *ngIf="isTrash" (click)="restore(noteObj)"><img src="../../../assets/restore_from_trash.svg" alt=""></div>
+      </div>
+
+
+  <button mat-icon-button [matMenuTriggerFor]="menu" >
+    <mat-icon><img *ngIf="!isTrash" src="../../../assets/more_vert.svg" alt=""></mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item >
+      <span *ngIf="!isTrash" (click)="trash(noteObj)">Delete note</span>
+    </button>
+    <button mat-menu-item>
+      <span>Add label</span>
+    </button>
+    <button mat-menu-item>
+      <span>Add drawing</span>
+    </button>
+    <button mat-menu-item>
+      <span>Make a copy</span>
+    </button>
+    <button mat-menu-item>
+      <span>Show checkboxex</span>
+    </button>
+  </mat-menu>
+
 
 </div>

@@ -3,6 +3,7 @@ import { NoteService } from 'src/app/sevice/noteservice/note.service';
 import { ArchiveComponent } from '../archive/archive.component';
 import { TrashComponent } from '../trash/trash.component';
 import { ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -12,10 +13,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class IconsComponent implements OnInit {
  
-  isTrash:boolean=false;
-  isArchive:boolean=false;
-  @Input() notedata:any;
-  
+  isTrash: any;
+  isArchive: any;
+  @Input() noteObj:any;
   
 
   colorArray = [{Colorcode:"white", name:"White"},{Colorcode:"#f28b82", name:"Red"},{Colorcode:"#fbbc04", name:"Orange"},
@@ -24,53 +24,97 @@ export class IconsComponent implements OnInit {
   {Colorcode:"#fdcfe8", name:"Pink"},{Colorcode:"#e6c9a8", name:"Brown"},{Colorcode:"#e8eaed", name:"Gray"}];
  
   
-  constructor(private note:NoteService ,private activatedroute: ActivatedRoute) { }
-
+  constructor(private note:NoteService ,private activatedroute: ActivatedRoute, private sanv:MatSnackBar) { }
+  @Output() changeNoteEvent = new EventEmitter<string>();
   ngOnInit(): void {
-    let del= this.activatedroute.snapshot.component;
-    if (del == TrashComponent) {
-      this.isTrash = true;
-      console.log(this.isTrash);
-    }
-    if(del == ArchiveComponent)
-    {
-      this.isArchive=true;
-      console.log(this.isArchive);
-    }
+    this.isTrash=this.noteObj.Trash;
+    this.isArchive=this.noteObj.Archieve;
   }
 
-  archieve() { 
-    let data = {
-      isArchive: true,
-    };
-    console.log('note is archieve');
-    this.note.archiveNote(data,this.notedata.noteId).subscribe((res: any) => {
-        console.log('Archieve Notes are :', res);  
-      });   
+  trash(note:any){
+    console.log(this.noteObj)
+    this.isTrash = !note.Trash;
+    this.note.trashNote(this.noteObj.noteID).subscribe((response: any) => {
+      console.log("Note trash status changed", response.data);
+      this.changeNoteEvent.emit("trashed");
+    });
+    this.sanv.open('Note Trashed','', {
+      duration: 3000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'center'
+    });
   }
 
-  trash(){
+  archive(note:any){
+    console.log(this.noteObj)
+    this.isArchive = true;
+    this.note.archiveNote(this.noteObj.noteID).subscribe((response: any) => {
+      console.log("Note archive status changed", response.data);
+      this.changeNoteEvent.emit(response);
+    });
+    this.sanv.open('Note archive status changed' ,'', {
+      duration: 3000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'center'
+    });
+  }
+
+  Unarchive(note:any){
+    console.log(this.noteObj)
+    this.isArchive = false;
+    this.note.archiveNote(this.noteObj.noteID).subscribe((response: any) => {
+      console.log("Note archive status changed", response.data);
+      this.changeNoteEvent.emit(response);
+    });
+    this.sanv.open('Note archive status changed' ,'', {
+      duration: 3000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'center'
+    });
+  }
+
+  changeColour(newColour: any){
+    console.log(this.noteObj)
+    let data={
+      noteId:this.noteObj.noteID,
+      Colour:newColour,
+    }
    
-    let data = {
-      isTrash: true,
-    };
-    console.log('note is deleted');
-    this.note.trashNote(data,this.notedata.noteId).subscribe((response: any) => {
-        console.log('Deleted Notes are :', response);
-      });   
+    this.note.changecolour(data).subscribe((response:any)=>{
+      console.log("color changed",response.data);
+      this.changeNoteEvent.emit(response);
+    });
+    this.sanv.open('Colour changed successfully' ,'', {
+      duration: 3000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'center'
+    });
   }
 
-  // ChangeColor(newcolor: any){
-  //   let data={
-  //     noteId:this.childmessage.noteId,
-  //     Colour:newcolor,
-  //   }
-  //   this.note.ChangeColor(data).subscribe((response:any)=>{
-  //     console.log("color changed",response.data);
-  //     this.messageEvent.emit(newcolor);
-  //   });
- 
-    
-  // }
+  restore(note:any){
+    // this.isTrash = !note.Trash;
+    this.note.trashNote(this.noteObj.NoteId).subscribe((response: any) => {
+      console.log("Note trash status changed", response.data);
+      this.changeNoteEvent.emit("restored");
+    });
+    this.sanv.open('Note Restored' ,'', {
+      duration: 3000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'start'
+    });
+  }
+
+  deleteforever(note:any){
+    this.note.delete(this.noteObj.noteID).subscribe((response: any) => {
+      console.log("Note deleted forever", response.data);
+      this.changeNoteEvent.emit("deleted");
+    });
+    this.sanv.open('Note deleted Permanently','', {
+      duration: 3000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'start'
+    });
+  }
+
 }
 

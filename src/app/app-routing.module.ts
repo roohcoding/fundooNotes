@@ -9,14 +9,16 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { GetallnotesComponent } from './Components/getallnotes/getallnotes.component';
 import { ArchiveComponent } from './Components/archive/archive.component';
 import { TrashComponent } from './Components/trash/trash.component';
+import { AuthGuardGuard } from './auth-guard.guard';
 
 
 const routes: Routes = [
   {path : 'register', component:RegisterComponent},
+  {path:'',redirectTo:"/login",pathMatch:'full'},
   {path : 'login', component:LoginComponent},
   {path : 'forgot-password', component:ForgotPasswordComponent},
   {path : 'reset-password', component:ResetPasswordComponent},
-  {path: 'dashboard',component:DashboardComponent,
+  {path: 'dashboard',component:DashboardComponent,canActivate:[AuthGuardGuard],
   children:[
     {path : 'notes', component:GetallnotesComponent},
     {path : 'archive', component:ArchiveComponent},

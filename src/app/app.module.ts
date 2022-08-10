@@ -23,6 +23,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
 import { GetallnotesComponent } from './Components/getallnotes/getallnotes.component';
 import { ArchiveComponent } from './Components/archive/archive.component';
 import { TrashComponent } from './Components/trash/trash.component';
@@ -30,7 +31,7 @@ import { CreatenoteComponent } from './Components/createnote/createnote.componen
 import { IconsComponent } from './Components/icons/icons.component';
 import { DisplayComponent } from './Components/display/display.component';
 import { UpdateComponent } from './Components/update/update.component';
-
+import { AuthserviceService } from './sevice/authservice/authservice.service';
 
 @NgModule({
   declarations: [
@@ -64,12 +65,13 @@ import { UpdateComponent } from './Components/update/update.component';
     MatListModule,
     MatIconModule,
     MatCardModule,
-    MatButtonModule,MatDialogModule,MatMenuModule,MatTooltipModule
+    MatButtonModule,MatDialogModule,MatMenuModule,MatTooltipModule,
+    MatSnackBarModule
     
 
     
   ],
-  providers: [],
+  providers: [AuthserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

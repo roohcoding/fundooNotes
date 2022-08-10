@@ -22,14 +22,14 @@ export class TrashComponent implements OnInit {
       console.log(resp.data);
       this.Tresult = resp.data;
       this.Tresult.reverse();
-      this.Tresult = this.Tresult.filter((object: any) => {
-        return object.isTrash === true;
-      });
+      // this.Tresult = this.Tresult.filter((object: any) => {
+      //   return object.isTrash === true;
+      // });
     })
   }
-  receiveMessagearchive(event:any){
-    console.log("trash note",event)
-    this.trashNote()
+  updatedIcon(e:any){
+    this.trashNote();
+
   }
 
 

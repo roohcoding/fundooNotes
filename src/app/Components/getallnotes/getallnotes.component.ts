@@ -9,6 +9,7 @@ import { NoteService } from 'src/app/sevice/noteservice/note.service';
 export class GetallnotesComponent implements OnInit {
   
   @Output() updatedisplay = new EventEmitter<string>();
+  @Output() changeNoteEvent = new EventEmitter<string>();
   
   parentMessage:any;
  
@@ -48,9 +49,14 @@ export class GetallnotesComponent implements OnInit {
     console.log(event)
     this.getNotes()
   }
-  updatedIcon(e:any){
+  updatedIcon(event:any){
+    console.log(event)
     this.getNotes();
   }
+  // iconRefresh(event:any){
+  //   console.log(event)
+  //   this.getNotes();
+  // }
   
 
 }

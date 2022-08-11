@@ -32,6 +32,7 @@ import { IconsComponent } from './Components/icons/icons.component';
 import { DisplayComponent } from './Components/display/display.component';
 import { UpdateComponent } from './Components/update/update.component';
 import { AuthserviceService } from './sevice/authservice/authservice.service';
+import { FilterPipe } from './Pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { AuthserviceService } from './sevice/authservice/authservice.service';
     IconsComponent,
     DisplayComponent,
     UpdateComponent,
+    FilterPipe,
 
   ],
   imports: [

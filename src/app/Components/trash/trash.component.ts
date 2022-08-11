@@ -22,9 +22,9 @@ export class TrashComponent implements OnInit {
       console.log(resp.data);
       this.Tresult = resp.data;
       this.Tresult.reverse();
-      // this.Tresult = this.Tresult.filter((object: any) => {
-      //   return object.isTrash === true;
-      // });
+      this.Tresult = this.Tresult.filter((object: any) => {
+        return object.isTrash === true;
+      });
     })
   }
   updatedIcon(e:any){

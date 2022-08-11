@@ -1,17 +1,27 @@
-.main{
-    width: 225px;
-    padding: auto;
-
+.icon-row{
+  padding-top: 10px;
+  width: fit-content;
 }
 
-.main img{
-    width: 20px;
-    height: 20px;
+img{
+  padding: 10px;
+  block-size: 20px;
 }
+
+button:hover{
+  box-shadow: 0px 0px 1px grey;
+  background-color: #e8e8e8;
+}
+
 .bg-color{
-    padding: 2px;
-  }
-  button:hover{
-    box-shadow: 0px 0px 1px grey;
-    background-color: #e8e8e8;
-  }
+  padding: 2px;
+}
+
+.icon-row-xs,.icon-row-sm{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 50%;
+}

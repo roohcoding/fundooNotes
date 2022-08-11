@@ -3,6 +3,7 @@ import { NoteService } from 'src/app/sevice/noteservice/note.service';
 import {Inject} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { UpdateComponent } from '../update/update.component';
+import { DataService } from 'src/app/sevice/dataservice/data.service';
 
 @Component({
   selector: 'app-display',
@@ -14,13 +15,21 @@ export class DisplayComponent implements OnInit {
   @Output() updatedisplay = new EventEmitter<string>();
   @Output() displayArchive = new EventEmitter<string>();
   @Output() messageEvent = new EventEmitter<any>();
-  
-  childmessage:any;
+  @Output() changeNoteEvent = new EventEmitter<string>();
+ 
+  searchString:any='';
+   message:any;
+   subscription: any;
+   colour:any;
   
  
-  constructor(private note:NoteService,public dialog: MatDialog) { }
+  constructor(private note:NoteService, public dialog: MatDialog, private data:DataService) { }
 
   ngOnInit(): void {
+    this.subscription = this.data.currentMessage.subscribe((message: any) => {this.message = message;
+      console.log(message);
+    })
+
   }
   openDialog(note:any): void {
     const dialogRef = this.dialog.open(UpdateComponent, {
@@ -43,9 +52,14 @@ export class DisplayComponent implements OnInit {
   operation(value: any) {
     this.updatedisplay.emit(value);
   }
-  iconRefresh($event:any){
-    this.updatedisplay.emit("hello");
+
+  iconRefresh(event:any){
+      console.log(event);
+      this.colour=event;
+      this.changeNoteEvent.emit(event)
+    
   }
+
  
 
 }

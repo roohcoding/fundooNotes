@@ -13,8 +13,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class IconsComponent implements OnInit {
  
-  isTrash: any;
-  isArchive: any;
+  isTrash: boolean = false;
+  isArchive: boolean = false;
   @Input() noteObj:any;
   
 
@@ -26,17 +26,34 @@ export class IconsComponent implements OnInit {
   
   constructor(private note:NoteService ,private activatedroute: ActivatedRoute, private sanv:MatSnackBar) { }
   @Output() changeNoteEvent = new EventEmitter<string>();
+  @Output()displayicons  = new EventEmitter<string>();
+  
+ 
+ 
+
+
   ngOnInit(): void {
-    this.isTrash=this.noteObj.Trash;
-    this.isArchive=this.noteObj.Archieve;
+    let del = this.activatedroute.snapshot.component;
+    if (del == TrashComponent) {
+      this.isTrash = true;
+      console.log(this.noteObj);
+    }
+    if (del == ArchiveComponent) {
+      this.isArchive = true;
+      console.log(this.noteObj);
+    }
+  
   }
 
-  trash(note:any){
-    console.log(this.noteObj)
-    this.isTrash = !note.Trash;
-    this.note.trashNote(this.noteObj.noteID).subscribe((response: any) => {
-      console.log("Note trash status changed", response.data);
-      this.changeNoteEvent.emit("trashed");
+  trash(){
+    let data = {
+      isTrash: true,
+    };
+    console.log(this.noteObj);
+    console.log('Note is trashed');
+    this.note.trashNote(data, this.noteObj.noteID).subscribe((response: any) => {
+      console.log('Trash Notes are :', response);
+      this.changeNoteEvent.emit(response);
     });
     this.sanv.open('Note Trashed','', {
       duration: 3000,
@@ -45,11 +62,14 @@ export class IconsComponent implements OnInit {
     });
   }
 
-  archive(note:any){
-    console.log(this.noteObj)
-    this.isArchive = true;
-    this.note.archiveNote(this.noteObj.noteID).subscribe((response: any) => {
-      console.log("Note archive status changed", response.data);
+  archive(){
+    let data = {
+      isArchive: true,
+    };
+    console.log(this.noteObj);
+    console.log('note is archieve');
+    this.note.archiveNote(data,this.noteObj.noteID).subscribe((response: any) => {
+      console.log('Archieve Notes are :', response);
       this.changeNoteEvent.emit(response);
     });
     this.sanv.open('Note archive status changed' ,'', {
@@ -59,12 +79,14 @@ export class IconsComponent implements OnInit {
     });
   }
 
-  Unarchive(note:any){
-    console.log(this.noteObj)
-    this.isArchive = false;
-    this.note.archiveNote(this.noteObj.noteID).subscribe((response: any) => {
-      console.log("Note archive status changed", response.data);
-      this.changeNoteEvent.emit(response);
+  Unarchive(){
+    let data = {
+      isArchive: false,
+    };
+    console.log('note is archieve');
+    this.note.archiveNote(data,this.noteObj.noteID).subscribe((resp: any) => {
+      console.log('Archieve Notes are :', resp);
+      this.changeNoteEvent.emit(resp);
     });
     this.sanv.open('Note archive status changed' ,'', {
       duration: 3000,
@@ -74,15 +96,15 @@ export class IconsComponent implements OnInit {
   }
 
   changeColour(newColour: any){
-    console.log(this.noteObj)
+   console.log(newColour)
     let data={
       noteId:this.noteObj.noteID,
       Colour:newColour,
     }
    
-    this.note.changecolour(data).subscribe((response:any)=>{
-      console.log("color changed",response.data);
-      this.changeNoteEvent.emit(response);
+    this.note.changecolour(data).subscribe((respons:any)=>{
+      console.log("color changed",respons);
+      this.changeNoteEvent.emit(respons);
     });
     this.sanv.open('Colour changed successfully' ,'', {
       duration: 3000,
@@ -91,11 +113,14 @@ export class IconsComponent implements OnInit {
     });
   }
 
-  restore(note:any){
-    // this.isTrash = !note.Trash;
-    this.note.trashNote(this.noteObj.NoteId).subscribe((response: any) => {
-      console.log("Note trash status changed", response.data);
-      this.changeNoteEvent.emit("restored");
+  restore(){
+    let data = {
+      isTrash: false,
+    };
+    console.log('Note is restored');
+    this.note.trashNote(data, this.noteObj.noteID).subscribe((rep: any) => {
+      console.log('Restore note :', rep);
+      this.changeNoteEvent.emit(rep);
     });
     this.sanv.open('Note Restored' ,'', {
       duration: 3000,
@@ -104,10 +129,14 @@ export class IconsComponent implements OnInit {
     });
   }
 
-  deleteforever(note:any){
-    this.note.delete(this.noteObj.noteID).subscribe((response: any) => {
-      console.log("Note deleted forever", response.data);
-      this.changeNoteEvent.emit("deleted");
+  deleteforever(){
+    let data = {
+      isTrash: true,
+    };
+    console.log('Note is deleted');
+    this.note.delete(this.noteObj.noteID).subscribe((re: any) => {
+      console.log('Deleted Notes are :', re);
+      this.changeNoteEvent.emit(re);
     });
     this.sanv.open('Note deleted Permanently','', {
       duration: 3000,

@@ -47,16 +47,25 @@
 
   
   .searchdiv{
-    width: 50%;
+    padding-top: 5px;
+    display: flex;
+    width: 700px;
     margin-left: 70px;
+    box-shadow: 2px 2px 5px #E8E8E8;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    
   }
   #search {
+    display: flex;
     opacity: 0.8;
+    
   }
   .search {
     border-radius: 10%;
     width: 50%;
-    background: rgba(0, 0, 0, 0.02);
+    border: 0px white; 
+  background: none;
   }
 
   .settingbtn{

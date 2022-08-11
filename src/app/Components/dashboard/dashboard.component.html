@@ -19,12 +19,12 @@
 
 
         <div class="searchdiv" fxLayoutAlign="space-between center">
-            <mat-form-field appearance="outline" fxHide.xs [style.fontSize.px]="2" class="search" fxFlex="90">
+            <mat-form-field appearance="outline"  class="search" fxFlex="90">
                 <button mat-icon-button class="search-button">
                     <mat-icon id="search" matTooltip="Search">search</mat-icon>
                 </button>
 
-                <input fxFlex="50" matInput placeholder="Search" [style.fontSize.px]="18" class="search-window"
+                <input fxFlex="50" matInput placeholder="Search" [(ngModel)]="searchString" [style.fontSize.px]="18" (keyup)="searchNote($event)" class="search-window"
                     autocomplete="off" type="text" />
             </mat-form-field>
         </div>

@@ -53,10 +53,10 @@ export class GetallnotesComponent implements OnInit {
     console.log(event)
     this.getNotes();
   }
-  // iconRefresh(event:any){
-  //   console.log(event)
-  //   this.getNotes();
-  // }
+  iconRefresh(event:any){
+    console.log(event)
+    this.getNotes();
+  }
   
 
 }

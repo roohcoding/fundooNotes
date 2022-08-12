@@ -17,6 +17,7 @@ export class DashboardComponent implements OnDestroy {
   message:any;
   subscription: any;
   searchString:any='';
+  gridView:any=true;
 
   fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
 
@@ -41,6 +42,7 @@ export class DashboardComponent implements OnDestroy {
 
   ngOnInit() {
     this.subscription = this. data.currentMessage.subscribe((message: any) => this.message = message)
+    this.data.currentView.subscribe(flag => this.gridView = flag)
   }
 
   ngOnDestroy(): void {
@@ -63,6 +65,14 @@ export class DashboardComponent implements OnDestroy {
    searchNote(text:any){
     this.data.changeMessage(text.target.value);
     console.log(this.searchString);
+  }
+  grid(){
+    this.gridView=true;
+    this.data.changeView(this.gridView)
+  }
+  list(){
+    this.gridView=false;
+    this.data.changeView(this.gridView)
   }
   
 

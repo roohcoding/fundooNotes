@@ -21,11 +21,17 @@ export class DisplayComponent implements OnInit {
    message:any;
    subscription: any;
    colour:any;
-  
+   isGrid:any = true;
  
   constructor(private note:NoteService, public dialog: MatDialog, private data:DataService) { }
 
   ngOnInit(): void {
+    this.data.currentView.subscribe((flag)=>{
+      this.isGrid=flag
+      console.log(this.isGrid)
+    })
+
+
     this.subscription = this.data.currentMessage.subscribe((message: any) => {this.message = message;
       console.log(message);
     })

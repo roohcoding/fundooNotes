@@ -1,14 +1,40 @@
-<div class="main" fxLayout="row" fxLayout="row wrap" fxFlex=100>
-    <mat-card class="note" *ngFor="let note of childMessage | filter: message" fxFlex.xs="90">
-        <div [style.background]="note.colour" >
-            <div (click)="openDialog(note)">
-                <div class="title" fxLayout="row" fxLayoutAlign="space-between">{{note.title}}</div>
-                <div class="desc">{{note.description}}</div>&nbsp;&nbsp;
-            </div>
-            <div>
-                <app-icons [noteObj]="note" (changeNoteEvent)="iconRefresh($event)" ></app-icons>
+<div class="gridnote" *ngIf="isGrid" fxLayoutAlign="start center">
+    <div class="outerdiv" fxLayout="row" fxLayoutAlign="start start" *ngFor="let note of childMessage | filter: message">
+        <div class="notecard" [style.background]="note.colour">
+            <div class="insidenote">
+                <div class="note" (click)="openDialog(note)">
+                    <div class="notepart" fxLayout="coloumn" fxLayoutAlign="space-between center">
+                        <h3> {{note.title}}</h3>
+                    </div>
+                    <div>{{note.description}}</div>
+                </div>
+                <div class="icons">
+                    <app-icons [noteObj]="note" (changeNoteEvent)="iconRefresh($event)"></app-icons>
+                </div>
             </div>
         </div>
-    </mat-card>
+    </div>
 </div>
-<!-- [noteObj]="note" (displayicons)="recieveArchiveNote($event)" -->
+
+
+<div class="listnote" *ngIf="!isGrid">
+    <div class="external" fxLayout="column" fxLayoutAlign="space-around center">
+        <div class="container" fxLayout="column" fxLayoutAlign="start start"
+            *ngFor="let note of childMessage | filter: message">
+            <div class="notecard" [style.background]="note.colour">
+                <div class="insidenote-list">
+                    <div class="note" (click)="openDialog(note)">
+                        <div class="notepart" fxLayout="row" fxLayoutAlign="space-between start">
+                            <h3> {{note.title}}</h3>
+                        </div>
+                        <h4>{{note.description}}</h4>
+
+                    </div>
+                    <div class="icons">
+                        <app-icons [noteObj]="note" (changeNoteEvent)="iconRefresh($event)"></app-icons>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,5 @@
 <app-createnote (messageEvent)="receiveMessage($event)"></app-createnote>
-<app-display [childMessage]="parentMessage"  (updatedisplay)="updatedData($event)" (displayArchive)="receiveMessagearchive($event)" > </app-display>
+<app-display [childMessage]="parentMessage"  (updatedisplay)="updatedData($event)" (displayArchive)="receiveMessagearchive($event)" (changeNoteEvent)="iconRefresh($event)"> </app-display>
 
 
 <!-- child to parent sharing using output and event emmiter , so messageEvent is in the parent component.ts and we emit the message by writing it -->

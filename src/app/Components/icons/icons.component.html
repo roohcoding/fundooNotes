@@ -31,7 +31,7 @@
       </button>
     </div>
 
-    <div class="delete">
+    <div class="delete" fxLayoutAlign="end end">
       <button mat-icon-button matTooltip="Delete forever" *ngIf="isTrash" (click)="deleteforever()">
         <img src="../../../assets/delete_forever.svg">
       </button>
@@ -42,7 +42,7 @@
 
 
   <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="!isTrash" >
-    <mat-icon>more_vert.svg</mat-icon>
+    <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item >

@@ -16,6 +16,12 @@ button:hover{
 .bg-color{
   padding: 2px;
 }
+.delete{
+  padding-top: 10px;
+  width: fit-content;
+  flex-direction: row;
+  
+}
 
 .icon-row-xs,.icon-row-sm{
   display: flex;

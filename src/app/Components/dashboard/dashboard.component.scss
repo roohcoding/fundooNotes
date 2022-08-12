@@ -82,6 +82,7 @@
     border:none;
     border: none!important;
   outline: none;
+  padding-right: -10px;
  
   }
   .icon:hover{
@@ -93,6 +94,7 @@
   .icon > img{
     height: 25px;
     margin-top: 5px;
+    padding-right: 10px;
   }
   .header-icons{
     height: 25px;
@@ -113,4 +115,11 @@
     /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
        `<body>` to be our scrolling element for mobile layouts. */
     flex: 1 0 auto;
+  }
+  .searchdiv-xs,.searchdiv-sm{
+    visibility: hidden;
+  }
+  .icon-sm,.icon-xs{
+    margin: 0%;
+    width: 10%
   }

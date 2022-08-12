@@ -3,12 +3,12 @@
         <button mat-icon-button (click)="snav.toggle()">
             <mat-icon>menu</mat-icon>
         </button>
-        <div fxHide.xs>
+        <div fxHide.xs >
         </div>
         <img src="../../../assets/fundoo.png" alt="img" class="logo">
         <h1 class="example-app-name">FundooNote</h1>
 
-        <div class="searchdiv" fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="searchdiv" fxLayout="row" fxLayoutAlign="space-between center" >
             <mat-form-field appearance="outline" fxHide.xs [style.fontSize.px]="2" class="search" fxFlex="90">
                 <button mat-icon-button class="search-button">
                     <mat-icon id="search" matTooltip="Search">search</mat-icon>
@@ -17,26 +17,26 @@
                 <input fxFlex="50" matInput placeholder="Search" [(ngModel)]="searchString" [style.fontSize.px]="18"
                     (keyup)="searchNote($event)" class="search-window" autocomplete="off" type="text" />
             </mat-form-field>
-        </div>&nbsp;&nbsp;&nbsp;
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-        <div fxLayout="row" fxLayoutAlign="end end">
-            <div fxLayout="row" fxLayoutAlign="end end">
-                <div class="icon">
+        <div fxLayout="row" fxLayoutAlign="end center">
+            <div  fxLayout="row" fxLayoutAlign="end center" >
+                <div class="icon" (click)="reloadCurrentPage()" ngClass.xs="icon-xs" ngClass.sm="icon-sm">
                     <img src="../../../assets/refresh.svg">
                 </div>&nbsp;&nbsp;&nbsp;
-                <div class="icon" (click)="list()" *ngIf="gridView">
+                <div class="icon" (click)="list()" *ngIf="gridView" ngClass.xs="icon-xs" ngClass.sm="icon-sm">
                     <img src="../../../assets/view_agenda.svg">
                 </div>
-                <div class="icon" (click)="grid()" *ngIf="!gridView">
+                <div class="icon" (click)="grid()" *ngIf="!gridView" ngClass.xs="icon-xs" ngClass.sm="icon-sm">
                     <img src="../../../assets/grid_view.svg">
                 </div>&nbsp;&nbsp;&nbsp;
-                <div class="icon">
+                <div class="icon" ngClass.xs="icon-xs" ngClass.sm="icon-sm">
                     <img src="../../../assets/settings.svg">
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div class="icon">
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="icon" ngClass.xs="icon-xs" ngClass.sm="icon-sm">
                     <img src="../../../assets/apps.svg">
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;
-                <div (click)="logout()" routerLink="./login" class="icon">
+                <div (click)="logout()" routerLink="./login" class="icon" ngClass.xs="icon-xs" ngClass.sm="icon-sm">
                     <img src="../../../assets/profile.svg">
                 </div>
             </div>

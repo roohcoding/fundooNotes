@@ -55,9 +55,9 @@ export class DisplayComponent implements OnInit {
     this.displayArchive.emit(event);
   }
 
-  operation(value: any) {
-    this.updatedisplay.emit(value);
-  }
+  // operation(value: any) {
+  //   this.updatedisplay.emit(value);
+  // }
 
   iconRefresh(event:any){
       console.log(event);

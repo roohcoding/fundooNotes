@@ -12,6 +12,7 @@ import { NoteService } from 'src/app/sevice/noteservice/note.service';
 export class UpdateComponent implements OnInit {
   
   @Output() updatedisplay = new EventEmitter<string>();
+  @Output() changeNoteEvent = new EventEmitter<string>();
   isShow=false;
   title:any;
   description:any;
@@ -58,10 +59,10 @@ export class UpdateComponent implements OnInit {
     this.dialogRef.close();
   }
  
-  receiveMessage(event:any){
-    console.log(event);
-    this.colour=event;
-  }
+  // receiveMessage(event:any){
+  //   console.log(event);
+  //   this.colour=event;
+  // }
   iconRefresh(event:any){
     console.log(event);
     this.colour=event;

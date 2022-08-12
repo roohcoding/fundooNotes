@@ -44,15 +44,17 @@ export class GetallnotesComponent implements OnInit {
     console.log(event);
     this.getNotes();
   }
-
+// for archive
   receiveMessagearchive(event:any){
     console.log(event)
     this.getNotes()
   }
+
   updatedIcon(event:any){
     console.log(event)
     this.getNotes();
   }
+  
   iconRefresh(event:any){
     console.log(event)
     this.getNotes();

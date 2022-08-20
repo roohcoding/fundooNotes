@@ -12,6 +12,7 @@ import { TrashComponent } from './Components/trash/trash.component';
 import { AuthGuardGuard } from './auth-guard.guard';
 
 
+
 const routes: Routes = [
   {path : 'register', component:RegisterComponent},
   {path:'',redirectTo:"/login",pathMatch:'full'},
@@ -23,8 +24,10 @@ const routes: Routes = [
     {path : 'notes', component:GetallnotesComponent},
     {path : 'archive', component:ArchiveComponent},
     {path : 'trash', component:TrashComponent},
-  ]
-}
+  ],
+  
+},
+
 ];
 
 @NgModule({

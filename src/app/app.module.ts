@@ -33,6 +33,9 @@ import { DisplayComponent } from './Components/display/display.component';
 import { UpdateComponent } from './Components/update/update.component';
 import { AuthserviceService } from './sevice/authservice/authservice.service';
 import { FilterPipe } from './Pipes/filter.pipe';
+import { ParentComponent } from './Components/parent/parent.component';
+import { ChildComponent } from './Components/child/child.component';
+
 
 @NgModule({
   declarations: [
@@ -50,6 +53,9 @@ import { FilterPipe } from './Pipes/filter.pipe';
     DisplayComponent,
     UpdateComponent,
     FilterPipe,
+    ParentComponent,
+    ChildComponent,
+   
 
   ],
   imports: [

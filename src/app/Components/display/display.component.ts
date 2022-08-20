@@ -24,6 +24,7 @@ export class DisplayComponent implements OnInit {
    isGrid:any = true;
  
   constructor(private note:NoteService, public dialog: MatDialog, private data:DataService) { }
+  //called first time before the ngOnInit()
 
   ngOnInit(): void {
     this.data.currentView.subscribe((flag)=>{
@@ -35,8 +36,11 @@ export class DisplayComponent implements OnInit {
     this.subscription = this.data.currentMessage.subscribe((message: any) => {this.message = message;
       console.log(message);
     })
+     //called after the constructor and called  after the first ngOnChanges()
+     //e.g. http call...
 
   }
+  
   openDialog(note:any): void {
     const dialogRef = this.dialog.open(UpdateComponent, {
       width: 'fit-content', height: 'fit-content',

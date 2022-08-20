@@ -57,6 +57,8 @@ export class UpdateComponent implements OnInit {
 
   onNoClick(): void {
     this.dialogRef.close();
+   
+
   }
  
   // receiveMessage(event:any){
@@ -66,6 +68,7 @@ export class UpdateComponent implements OnInit {
   iconRefresh(event:any){
     console.log(event);
     this.colour=event;
+    this.updatedisplay.emit(event)
   }
 
 }

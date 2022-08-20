@@ -1,4 +1,4 @@
-<div class="gridnote" *ngIf="isGrid" fxLayoutAlign="start center" ngClass.xs="container-xs" ngClass.md="gridnote-md" ngClass.sm="gridnote-sm">
+<div class="gridnote" *ngIf="isGrid" fxLayoutAlign="start center" ngClass.xs="gridnote-xs" ngClass.md="gridnote-md" ngClass.sm="gridnote-sm">
     <div class="outerdiv" fxLayout="row" fxLayoutAlign="start start" *ngFor="let note of childMessage | filter: message">
         <div class="notecard" [style.background]="note.colour">
             <div class="insidenote">
@@ -19,7 +19,7 @@
 <!-- {{note.title}} is template expression -->
 
 
-<div class="listnote" *ngIf="!isGrid" ngClass.xs="listnote-xs" ngClass.md="listnote-md">
+<div class="listnote" *ngIf="!isGrid" ngClass.xs="listnote-xs" ngClass.md="listnote-md" ngClass.sm="gridnote-sm">
     <div class="external" fxLayout="column" fxLayoutAlign="space-around center">
         <div class="container" fxLayout="column" fxLayoutAlign="start start"
             *ngFor="let note of childMessage | filter: message">

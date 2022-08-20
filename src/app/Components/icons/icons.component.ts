@@ -72,7 +72,7 @@ export class IconsComponent implements OnInit {
       console.log('Archieve Notes are :', response);
       this.changeNoteEvent.emit(response);
     });
-    this.sanv.open('Note archive status changed' ,'', {
+    this.sanv.open('Note archieved' ,'', {
       duration: 3000,
       verticalPosition: 'bottom',
       horizontalPosition: 'center'
@@ -88,7 +88,7 @@ export class IconsComponent implements OnInit {
       console.log('Archieve Notes are :', resp);
       this.changeNoteEvent.emit(resp);
     });
-    this.sanv.open('Note archive status changed' ,'', {
+    this.sanv.open('Note unarchived' ,'', {
       duration: 3000,
       verticalPosition: 'bottom',
       horizontalPosition: 'center'
